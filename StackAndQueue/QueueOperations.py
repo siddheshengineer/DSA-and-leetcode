@@ -36,7 +36,6 @@ class QueueOperations:
             self.first = None
             self.last = None
             self.length -= 1
-          
         else:
             self.first = self.first.next
             temp.next = None
