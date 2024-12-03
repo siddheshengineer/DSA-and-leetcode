@@ -87,4 +87,4 @@ print(f'Removed: {removed}, Heap: {myheap.heap}')  # Removed: 6, Heap: [8, 12, 1
     Removed: 4, Heap: [6, 8, 10, 12]
     Removed: 6, Heap: [8, 12, 10]
 
-"""
+"""   
