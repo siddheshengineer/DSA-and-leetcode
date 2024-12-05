@@ -39,17 +39,47 @@ class BSTOperations:
                 temp = temp.left
         return False
 
+    #contains using recursion
+    def r_contains(self, value):
+        return self.__r_contains(self.root, value)
+    
+    def __r_contains(self, current_node, value):
+        if current_node == None:
+            return False
+        if current_node.value == value:
+            return True
+        elif current_node.value < value:
+            return self.__r_contains(current_node.right, value)
+        else:
+            return self.__r_contains(current_node.left, value)
+
+    def r_insert(self, value):
+        self.__r_insert(self.root, value)
+    
+    def __r_insert(self, current_node, value):
+        if current_node == None: #empty tree/node
+            return Node(value)
+        if value < current_node.value:
+            current_node.left = self.__r_insert(current_node.left , value)
+        if value > current_node.value:
+            current_node.right = self.__r_insert(current_node.right , value)
+        return current_node
+
+        
+
+
         
 
 mytree = BSTOperations()
 mytree.insert(2)
 mytree.insert(1)
-mytree.insert(3)
+mytree.r_insert(3)
 
 print(mytree.root.value)
 print(mytree.root.left.value)
 print(mytree.root.right.value)
-print(mytree.contains(1))
+# print(mytree.contains(1))
+print(mytree.r_contains(9))
                 
             
             
