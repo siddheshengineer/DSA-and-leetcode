@@ -94,13 +94,6 @@ class BSTOperations:
             current_node = current_node.left
         return current_node.value
 
-
-
-        
-
-
-        
-
 mytree = BSTOperations()
 mytree.insert(2)
 mytree.insert(1)
