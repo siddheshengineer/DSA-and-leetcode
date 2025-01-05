@@ -12,3 +12,5 @@ def insertion_sort(list):
 
 print(insertion_sort([4,2,6,1,3,5]))
 print(insertion_sort([40,22,6,15,3,54]))
+
+## Big O of insertion sort usually is O(n^2) but for a almost sorted list it can be O(n)
