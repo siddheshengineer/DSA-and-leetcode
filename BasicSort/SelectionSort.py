@@ -13,5 +13,5 @@ def selection_sort(list):
 
     return list 
 
-
+print(selection_sort([4,2,6,1,3,5]))
 print(selection_sort([40,22,6,15,3,54]))
