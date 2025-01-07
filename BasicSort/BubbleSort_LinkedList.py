@@ -28,30 +28,32 @@ class LinkedList:
         self.length += 1
 
     def bubble_sort(self):
-        
-        LinkedListlen = self.length
-        
-        if LinkedListlen < 2:
+        if self.length < 2:
             return True
-                
-        for i in range (LinkedListlen - 1, 0, -1):
+
+        for i in range (self.length - 1, 0, -1):
             check = self.head
             for _ in range(i):
-                if check.value > check.next.value:
-                    temp = check.next.value
-                    check.next.value = check.value
-                    check.value = temp
-                check = check.next
+                next_node = check.next
+                if check.value > next_node.value:
+                    check.value, next_node.value = next_node.value, check.value
+                check = next_node
         return True
                 
-        # for i in range (len(list)-1, 0, -1):
-        #     for j in range(i):
-        #         if list[j] > list[j+1]:
-        #             temp = list[j]
-        #             list[j] = list[j+1]
-        #             list[j+1] = temp
-        # return list 
-
+        # def bubble_sort(self):
+        #   if self.length < 2:
+        #     return
+        
+        #   sorted_until = None
+        
+        #   while sorted_until != self.head.next:
+        #     current = self.head
+        #     while current.next != sorted_until:
+        #         next_node = current.next
+        #         if current.value > next_node.value:
+        #             current.value, next_node.value = next_node.value, current.value
+        #         current = current.next
+        #     sorted_until = current
 
 
 my_linked_list = LinkedList(4)
