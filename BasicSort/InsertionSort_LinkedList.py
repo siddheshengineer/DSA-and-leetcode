@@ -32,42 +32,35 @@ class LinkedList:
         if self.length < 2:
             return
         
-        sorted_list = self.head
-        current = sorted_list.next
-        sorted_list.next = None
+        #sorted_list = self.head
+        current = self.head.next #start with 2nd element of LinkedList
+        self.head.next = None #creating new sorted list, disconnecting unsorted list
         
-        while current.next is not None:
+        while current is not None:  #outer loop, previous used current.next but that caused last element to be skipped failing test cases.
             temp = current.next
             
+            #to handel smallest element edge case
             if current.value <= self.head.value:
                 current.next = self.head
                 self.head = current
                 
+            #for rest of the list    
             else:
-                while current.next is not None:
-                    current.value 
-                    
+                # Traverse the sorted list to find the correct position
+                sorted_list = self.head
+                
+                # Traverse the sorted list to find the correct position for the current node.
+                # Continue moving through the sorted list as long as there is a next node
+                # and the value of the next node is less than the current node's value.
+                while sorted_list.next and sorted_list.next.value < current.value: 
+                    sorted_list = sorted_list.next
             
+                # Insert current between sorted_list and sorted_list.next
+                current.next = sorted_list.next
+                sorted_list.next = current
+                
+            current = temp #move ahead in the original list
             
-            current = temp
-            
-    
-    # def insertion_sort(list):
-    #   for i in range (1, len(list)):
-    #     temp = list[i]
-    #     j = i - 1
-
-    #     while temp < list[j] and j > -1:
-    #         list[j+1] = list[j]
-    #         list[j] = temp
-    #         j -= 1
-
-    #   return list 
-
-
-
-
-
 my_linked_list = LinkedList(4)
 my_linked_list.append(2)
 my_linked_list.append(6)
