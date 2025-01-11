@@ -8,8 +8,8 @@ def merge_sort(unsorted_list):
 
     #break the list in half till it is a single element
     mid_index = int(len(unsorted_list)/2)
-    left  = merge_sort(unsorted_list[:mid_index])
-    right = merge_sort(unsorted_list[mid_index:])
+    left  = merge_sort(unsorted_list[:mid_index]) #from index zero till index mid_index-1
+    right = merge_sort(unsorted_list[mid_index:]) #from mid_index till last index
 
     return merge(left, right)
 
