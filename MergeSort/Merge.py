@@ -21,4 +21,4 @@ def merge(list1, list2): #assuming list1 and list2 are sorted
 
     return combined
 
-print(merge([1,5,6,8], [2,3, 7, 9]))
+# print(merge([1,5,6,8], [2,3, 7, 9]))
