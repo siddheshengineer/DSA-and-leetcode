@@ -53,9 +53,9 @@ class Solution:
 # After operation 3	[16, 8]
  
 
-Constraints:
+# Constraints:
 
-1 <= nums.length <= 100
-1 <= nums[i] <= 100
-1 <= k <= 10
-1 <= multiplier <= 5
+# 1 <= nums.length <= 100
+# 1 <= nums[i] <= 100
+# 1 <= k <= 10
+# 1 <= multiplier <= 5
