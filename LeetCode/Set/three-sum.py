@@ -2,29 +2,37 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
 
         result = []
-        seen_index = {}
-        break_mid_loop = True
+        nums = sorted(nums)
 
-        for index_i, i in enumerate(nums):
-            
-            for index_j, j in enumerate(nums):
-                if break_mid_loop and index_i != index_j:
-                    com = i+j
-                    com = -com
-        
-                    for index_k, k in enumerate(nums):
-                        if (index_j != index_k) and (index_i != index_k) and (k == com): 
+        for i in range(len(nums)):
+            # print(nums[i])
+            if i > 0 and  nums[i] == nums[i-1]: #remove duplicates for i
+                continue
+            left = i+1
+            right = len(nums)-1
+            _sum = -nums[i]  
 
-                            check_key = tuple(sorted([i, j, k]))
-                            
-                            if check_key not in seen_index:
-                                result.append([i, j, k])
-                                seen_index[check_key] = True    
-                            else:
-                                # break_mid_loop = False
-                                break
+            while left < right:
+                if _sum == (nums[left] + nums[right]):
+                    result.append([nums[i], nums[left], nums[right]])
+                    left += 1
+                    right -= 1
+
+                    while (left < right) and (nums[left] == nums[left-1]): #remove duplicates for left
+                        left += 1
+                    while (left < right) and (nums[right] == nums[right+1]): #remove duplicates for nums
+                        right -= 1
+
+                elif _sum < (nums[left] + nums[right]):
+                    right -= 1
+
+                else:
+                    left += 1
 
         return result
+
+
+        
 
 
         
