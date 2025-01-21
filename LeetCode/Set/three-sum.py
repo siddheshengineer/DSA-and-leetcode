@@ -1,30 +1,36 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        _hash = {}
-        result = []
 
-        for index, i in enumerate(nums):
-            _hash[i] = index
+        result = []
+        seen_index = {}
+        break_mid_loop = True
 
         for index_i, i in enumerate(nums):
+            
             for index_j, j in enumerate(nums):
-                if index_i != index_j:
+                if break_mid_loop and index_i != index_j:
                     com = i+j
                     com = -com
-                    
-                if com in _hash:
-                    result.append([i, j, _hash[com].value])
+        
+                    for index_k, k in enumerate(nums):
+                        if (index_j != index_k) and (index_i != index_k) and (k == com): 
 
-                    # for index_k, k in enumerate(nums):
-                    #     if (index_j != index_k) and (k == com):     
-                    #         # print(i, j , k, com)                       
-                    #         if  k in _hash:
-                    #             print(i, j , k, com) 
-                    #             result.append([i, j, k])
-                    #             break
+                            check_key = tuple(sorted([i, j, k]))
+                            
+                            if check_key not in seen_index:
+                                result.append([i, j, k])
+                                seen_index[check_key] = True    
+                            else:
+                                # break_mid_loop = False
+                                break
+
+        return result
+
 
         
-        return result
+
+
+        
 
 
 # 15. 3Sum
