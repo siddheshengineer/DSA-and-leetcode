@@ -1,7 +1,7 @@
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         ## implementing this as a kSum problem by passing k=4
-        ## approch using 2pointer
+        ## approch using hash set
 
         def kSum(nums: List[int], target: int, k: int) -> List[List[int]]:
 
@@ -45,7 +45,27 @@ class Solution:
                         result.append([target - nums[i], nums[i]])
                 s.add(nums[i])
 
-            return result    
+            return result   
+
+        #working 2 pointer approch
+        # def twoSum(nums: List[int], target: int) -> List[List[int]]:
+        #     res = []
+        #     lo, hi = 0, len(nums) - 1
+
+        #     while lo < hi:
+        #         curr_sum = nums[lo] + nums[hi]
+        #         if curr_sum < target or (lo > 0 and nums[lo] == nums[lo - 1]):
+        #             lo += 1
+        #         elif curr_sum > target or (
+        #             hi < len(nums) - 1 and nums[hi] == nums[hi + 1]
+        #         ):
+        #             hi -= 1
+        #         else:
+        #             res.append([nums[lo], nums[hi]])
+        #             lo += 1
+        #             hi -= 1
+
+        #     return res 
 
 
 
