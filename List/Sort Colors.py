@@ -3,15 +3,23 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        for i in range(len(nums)):
-            if nums[i] == 0:
-                nums.pop(i)
-                nums.insert(0, 0)
-            elif nums[i] == 2:
-                nums.pop(i)
-                nums.insert(-1, 2)
+        right = (len(nums) -1)
+        mid = 0
+        left = 0
+
+        while mid <= right:
+            if nums[mid] == 0:
+                nums[mid] = nums[left]
+                nums[left] = 0
+                mid += 1
+                left += 1
+            elif nums[mid] == 2:
+                nums[mid] = nums[right]
+                nums[right] = 2
+                right -= 1
             else:
-                continue
+                mid += 1
+
 
 # 75. Sort Colors
 # Medium
