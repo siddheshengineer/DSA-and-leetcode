@@ -10,31 +10,73 @@ class Solution:
             'M':1000
         }
         result = 0
-        i = 1
-        prev = s[0]
+        i = 0
 
-        for char in s:
-            if i < len(s):
-                forw = s[i]
-
-            print(f"char: {char}, prev: {prev}, forw: {forw}")
-
-            if (conv[char]<=conv[prev]) and (conv[char]>=conv[forw]):
-                print(f"if loop char {conv[char]}")
-                result = conv[char] + result
-            elif (conv[char]>=conv[prev]):
-                print(f"ifelse loop char {conv[char]}, prev {conv[prev]}")
-                result = (conv[char] - conv[prev]) + result
+        while i < len(s):
+            
+            if i < (len(s)-1) and conv[s[i]] < conv[s[i+1]]: #next character should not be bigger than current char
+                result += (conv[s[i+1]] - conv[s[i]])
+                i += 1 #skip next characted, as it is already accounted for
             else:
-                print(f"ifelse loop char {conv[char]}, forw {conv[forw]}")
-                result = (conv[forw] - conv[char]) + result
-
-            print("result: ", result)
-            prev = char
-            forw = char
+                result += conv[s[i]]
+            
             i += 1
-            print()
         
         return result
-        
-    
+
+# 13. Roman to Integer
+# Solved
+# Easy
+# Topics
+# Companies
+# Hint
+
+# Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+# Symbol       Value
+# I             1
+# V             5
+# X             10
+# L             50
+# C             100
+# D             500
+# M             1000
+
+# For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
+
+# Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
+
+#     I can be placed before V (5) and X (10) to make 4 and 9. 
+#     X can be placed before L (50) and C (100) to make 40 and 90. 
+#     C can be placed before D (500) and M (1000) to make 400 and 900.
+
+# Given a roman numeral, convert it to an integer.
+
+ 
+
+# Example 1:
+
+# Input: s = "III"
+# Output: 3
+# Explanation: III = 3.
+
+# Example 2:
+
+# Input: s = "LVIII"
+# Output: 58
+# Explanation: L = 50, V= 5, III = 3.
+
+# Example 3:
+
+# Input: s = "MCMXCIV"
+# Output: 1994
+# Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+
+ 
+
+# Constraints:
+
+#     1 <= s.length <= 15
+#     s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
+#     It is guaranteed that s is a valid roman numeral in the range [1, 3999].
+
