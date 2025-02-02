@@ -1,63 +1,16 @@
 class Solution:
     def intToRoman(self, num: int) -> str:
-        cmap = {1:'I', 5:'V', 10:'X', 50:'L', 100:'C', 500:'D', 1000:'M'}
+        cmap = {1000:'M', 900:'CM', 500:'D', 400:'CD', 100:'C', 90:'XC', 50:'L',  40:'XL', 10:'X', 9:'IX', 5:'V', 4:'IV', 1:'I'}
         result = ""
 
-        # def subractive(n: int) -> str:
-        #     #placeholder
+        for key, value in cmap.items():
+            if num == 0:
+                break
+            count = num // key
+            result += (value*count)
+            num -= (count*key)
 
-        while num > 0:
-            if num >= 1000:
-                tho = int(num/1000)
-                result = result + ("M"*tho)
-                num = num%1000
-            elif num >= 900:
-                result += 'CM'
-                num -= 900
-            elif 900 > num >= 500: 
-                hun = int(num/500)
-                result = result + ("D"*hun)
-                num = num%500
-            elif num >= 400:
-                result += 'CD'
-                num -= 400
-            elif 400 > num >= 100: 
-                one = int(num/100)
-                result = result + ("C"*one)
-                num = num%100
-            elif num >= 90:
-                result += 'XC'
-                num -= 90
-            elif 90 > num >= 50: 
-                fif = int(num/50)
-                result = result + ("L"*fif)
-                num = num%50
-            elif num >= 40:
-                result += 'XL'
-                num -= 40
-            elif 40 > num >= 10:
-                ten = int(num/10)
-                result = result + ("X"*ten)
-                num = num%10
-            elif num == 9:
-                result += 'IX'
-                num -= 9
-            elif 9 > num >= 5: 
-                fiv = int(num/5)
-                result = result + ("V"*fiv)
-                num = num%5
-            elif num == 4:
-                result += 'IV'
-                num -= 4
-            else: 
-                sin = int(num)
-                result = result + ("I"*sin)
-                num = 0
-            
-        
-        # print(num)
         return result
-
 
 # 12. Integer to Roman
 # Solved
