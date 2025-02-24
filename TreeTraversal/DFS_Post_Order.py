@@ -76,15 +76,17 @@ class BinarySearchTree:
 
 
 my_tree = BinarySearchTree()
-my_tree.insert(47)
-my_tree.insert(21)
-my_tree.insert(76)
-my_tree.insert(18)
-my_tree.insert(27)
-my_tree.insert(52)
-my_tree.insert(82)
+my_tree.insert(1)
+my_tree.insert(2)
+my_tree.insert(3)
+my_tree.insert(4)
+my_tree.insert(5)
+my_tree.insert(6)
+my_tree.insert(7)
 
 print(my_tree.dfs_post_order())
+
+# Expected output: [18, 27, 21, 52, 82, 76, 47]
 
 
 
