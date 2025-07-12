@@ -22,3 +22,5 @@ class Solution:
         return meeting_count.index(max(meeting_count))
 
 # 2402. Meeting Rooms III
+
+# The code uses two min-heaps: one (unused) to track available rooms by room number, and another (used) to track busy rooms by their meeting end times. For each meeting (sorted by start time), the code first frees up any rooms whose meetings have ended, then either assigns the meeting to the lowest-numbered available room or delays it until the soonest room becomes free—keeping the original meeting duration. Each time a room is assigned a meeting, its count is incremented. Finally, the room with the most meetings (preferring the smallest number in case of a tie) is returned.
